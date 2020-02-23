@@ -118,3 +118,31 @@ public class Solution {
         nums[j] = temp;
     }
 }
+
+//priorityqueue O(nlogk)
+public class Solution {
+    /**
+     * @param n: An integer
+     * @param nums: An array
+     * @return: the Kth largest element
+     */
+    public int kthLargestElement(int n, int[] nums) {
+        // write your code here
+        if (nums == null || nums.length == 0 || nums.length < n) {
+            return -1;
+        }
+        
+        Queue<Integer> q = new PriorityQueue<Integer>();
+        for (int i=0; i<nums.length; i++) {
+            if (q.size() < n) {
+                q.offer(nums[i]);
+            }
+            else {
+                q.offer(nums[i]);
+                q.poll();
+            }
+        }
+        
+        return q.poll();
+    }
+}
