@@ -53,6 +53,9 @@ public class Solution {
         Stack<TreeNode> stack = new Stack<TreeNode>();
         while (root != null) {
             stack.push(root);
+            if (root.val < k1) {
+                break;
+            }
             root = root.left;
         }
         
@@ -62,10 +65,15 @@ public class Solution {
                 ans.add(node.val);
             }
             
-            TreeNode right = node.right;
-            while (right != null) {
-                stack.push(right);
-                right = right.left;
+            if (node.val < k2) {
+                TreeNode right = node.right;
+                while (right != null) {
+                    stack.push(right);
+                    if (right.val < k1) {
+                        break;
+                    }
+                    right = right.left;
+                }
             }
         }
         
@@ -110,12 +118,16 @@ public class Solution {
             return;
         }
         
-        dfs(root.left, k1, k2, ans);
+        if (root.val > k1) {
+            dfs(root.left, k1, k2, ans);
+        }
         
         if (root.val >= k1 && root.val <= k2) {
             ans.add(root.val);
         }
         
-        dfs(root.right, k1, k2, ans);
+        if (root.val < k2) {
+            dfs(root.right, k1, k2, ans);
+        }
     }
 }
