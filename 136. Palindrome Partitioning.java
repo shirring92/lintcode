@@ -20,7 +20,7 @@ Notice
 Different partitionings can be in any order.
 Each substring must be a continuous segment of s.
 
-//recursion
+//recursion。 O(n*(2^n))
 public class Solution {
     /*
      * @param s: A string
@@ -70,7 +70,7 @@ public class Solution {
     }
 }
 
-//DP
+//DP. O(n^2 + 2^n) = O(2^n)
 public class Solution {
     /*
      * @param s: A string
