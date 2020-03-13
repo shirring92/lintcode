@@ -18,7 +18,7 @@ Numbers in a combination a1, a2, … , ak must be in non-descending order. (ie, 
 Different combinations can be in any order.
 The solution set must not contain duplicate combinations.
 
-//recursion O(n^2)
+//recursion O(2^n)
 public class Solution {
     /**
      * @param num: Given the candidate numbers
